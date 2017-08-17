@@ -32,8 +32,12 @@ class CdnAssetsPathTwigExtension extends Twig_Extension
         } else {
             $replacement = '';
         }
-        $string = $replacement . craft()->config->parseEnvironmentString($string);
-        return $string;
+        
+        // check if he have an image transform request
+        $url = craft()->config->parseEnvironmentString($string);
+        if(!filter_var($url, FILTER_VALIDATE_URL)){
+            $url = $replacement . $url;
+        }
     }
 
 }
