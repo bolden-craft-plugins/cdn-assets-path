@@ -62,7 +62,7 @@ class CdnAssetsPathPlugin extends BasePlugin
         $settingValue = $this->getSettings()['cdnUrl'];
         $value = !empty($settingValue) ? $settingValue : $siteUrl;
 
-        $textField = craft()->templates->renderMacro('_includes/forms', 'textfield', array(
+        return craft()->templates->renderMacro('_includes/forms', 'textfield', array(
             array(
                 'label' => 'Environment Variable cdnUrl',
                 'instructions' => 'Set the url(s) for the cdn path (use comma for multiple urls)',
@@ -71,21 +71,6 @@ class CdnAssetsPathPlugin extends BasePlugin
                 'value' => $value,
             )
         ));
-
-        $documentation = '<h2>How to configure</h2>
-                    Make sure that the assets path is relative as the cdn path(s) will be prepended at the front
-                    <br>
-                    <br>
-                    <img src="' . UrlHelper::getResourceUrl('cdnassetspath/images/assets.settings.png') . '">
-                    <br>
-                    <br>
-                    Use the twig filter "cdnUrl" for the media/assets url to get the cdn path(s)
-                    <br>
-                    <br>
-                    <img src="' . UrlHelper::getResourceUrl('cdnassetspath/images/twig.cdnfilter.template.png') . '">
-                ';
-
-        return TemplateHelper::getRaw($textField . $documentation);
     }
 
 }
