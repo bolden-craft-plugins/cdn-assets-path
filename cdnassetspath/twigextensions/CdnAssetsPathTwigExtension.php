@@ -38,6 +38,7 @@ class CdnAssetsPathTwigExtension extends Twig_Extension
         if(!filter_var($url, FILTER_VALIDATE_URL)){
             $url = $replacement . $url;
         }
+        return $url;
     }
 
 }
