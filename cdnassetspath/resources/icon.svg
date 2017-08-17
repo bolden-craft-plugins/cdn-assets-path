@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <defs>
+    <linearGradient id="a" x1="0%" x2="102%" y1="0%" y2="101%">
+      <stop stop-color="#3023AE" offset="0%"/>
+      <stop stop-color="#C86DD7" offset="100%"/>
+    </linearGradient>
+    <path id="c" d="M200,344 C164.653776,344 136,315.346224 136,280 C136,244.653776 164.653776,216 200,216 C203.144466,216 206.235966,216.226772 209.259038,216.664854 C223.701343,187.810468 253.53718,168 288,168 C336.601058,168 376,207.398942 376,256 C376,304.601058 336.601058,344 288,344 L200,344 Z"/>
+    <filter id="b" width="153.3%" height="172.7%" x="-26.7%" y="-27.3%" filterUnits="objectBoundingBox">
+      <feMorphology radius="8" operator="dilate" in="SourceAlpha" result="shadowSpreadOuter1"/>
+      <feOffset dy="16" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
+      <feMorphology radius="8" in="SourceAlpha" result="shadowInner"/>
+      <feOffset dy="16" in="shadowInner" result="shadowInner"/>
+      <feComposite in="shadowOffsetOuter1" in2="shadowInner" operator="out" result="shadowOffsetOuter1"/>
+      <feGaussianBlur stdDeviation="16" in="shadowOffsetOuter1" result="shadowBlurOuter1"/>
+      <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0" in="shadowBlurOuter1"/>
+    </filter>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <circle cx="256" cy="256" r="256" fill="url(#a)"/>
+    <g stroke-dasharray="32 16">
+      <use fill="black" filter="url(#b)" xlink:href="#c"/>
+      <use stroke="#FFFFFF" stroke-width="16" xlink:href="#c"/>
+    </g>
+  </g>
+</svg>
